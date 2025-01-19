@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Receiptify
 
-## Getting Started
+Receiptify is a website that allows you to convert your top tracks (on [last.fm](https://last.fm) or [Spotify](https://spotify.com)).
+It fetches your top tracks and renders them in a way to look like a receipt.
 
-First, run the development server:
+# Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. `git clone https://github.com/Stef-00012/receiptify`.
+2. `cd receiptify`.
+3. Setup the `.env` file (See [Config](#config)).
+4. `docker compose up -d`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Config
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `LASTFM_API_KEY`: Your last.fm API key.
+- `NEXT_PUBLIC_SPOTIFY_REDIRECT_URI`: Your Spotify app redirect URI.
+- `NEXT_PUBLIC_SPOTIFY_CLIENT_ID`: Your Spotify app client ID.
+- `NEXT_PUBLIC_LASTFM_ENABLED`: Whether allow people to create a receipt with last.fm (requires `LASTFM_API_KEY`).
+- `NEXT_PUBLIC_SPOTIFY_ENABLE`: Whether allow people to create a receipt with Spotify (requires `NEXT_PUBLIC_SPOTIFY_REDIRECT_URI` and `NEXT_PUBLIC_SPOTIFY_CLIENT_ID`)
+- `NEXT_PUBLIC_UMAMI_URI`: Your [umami](https://umami.is) url (for analyrics)
+- `NEXT_PUBLIC_UMAMI_WEBSITE_ID`: Your [umami](https://umami.is) url (for analyrics)
