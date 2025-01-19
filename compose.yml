@@ -1,6 +1,6 @@
 services:
     receiptify:
-        image: sefdp/receiptify
+        image: stefdp/receiptify
         container_name: receiptify
         restart: unless-stopped
         ports:
