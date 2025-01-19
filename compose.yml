@@ -1,0 +1,9 @@
+services:
+    receiptify:
+        image: sefdp/receiptify
+        container_name: receiptify
+        restart: unless-stopped
+        ports:
+            - 3000:3000
+        env_file:
+            - .env

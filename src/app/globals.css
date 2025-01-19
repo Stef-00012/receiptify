@@ -2,20 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "receipt";
+  src: url("/fonts/receipt.ttf") format("truetype");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: url("/images/receiptBackground.webp");
+  --foreground: #171717;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "receipt", sans-serif;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.align-center {
+  @apply text-center;
+}
+
+.align-right {
+  @apply text-right pr-0;
+}
+
+.divider {
+  @apply h-[5px] pl-0.5 py-0;
+}
+
+td {
+  @apply px-[15px];
+}
+
+button.download {
+  @apply w-full bg-[#1cc357] text-[white] text-base cursor-pointer mt-[15px] p-2.5 rounded-[3px] border-[none];
 }
