@@ -159,7 +159,7 @@ export default function Receipt({ receiptData }: Params) {
 						
 						if (image && downloadRef.current) {
 							downloadRef.current.href = image
-							downloadRef.current.download = 'receipt-screenshot.png'
+							downloadRef.current.download = 'receipt.png'
 							downloadRef.current.click()
 						}
 					}
