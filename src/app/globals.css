@@ -35,7 +35,3 @@ body {
 td {
   @apply px-[15px];
 }
-
-button.download {
-  @apply w-full bg-[#1cc357] text-[white] text-base cursor-pointer mt-[15px] p-2.5 rounded-[3px] border-[none];
-}
