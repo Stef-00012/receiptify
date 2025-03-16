@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { baseUrl } from "@/data/constants";
 
 import "./globals.css";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(baseUrl),
@@ -63,7 +64,9 @@ export default function RootLayout({
 				)}
 			</head>
 			<body className="antialiased m-0">
-				{children}
+				<Suspense>
+					{children}
+				</Suspense>
 			</body>
 		</html>
 	);
