@@ -1,14 +1,15 @@
 "use client";
 
-import ReceiptError from "@/components/error";
-import Form from "@/components/form";
-import Loading from "@/components/loading";
-import Receipt from "@/components/receipt";
+import { fetchSpotifyUserData, getHashParams } from "@/scripts/spotify";
+
 import type { ReceiptData } from "@/types/receipt";
-import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import fetchLastFmData from "@/scripts/lastFm";
-import { fetchSpotifyUserData, getHashParams } from "@/scripts/spotify";
+import ReceiptError from "@/components/error";
+import { useEffect, useState } from "react";
+import Loading from "@/components/loading";
+import Receipt from "@/components/receipt";
+import Form from "@/components/form";
 
 export default function Home() {
 	const [receiptData, setReceiptData] = useState<ReceiptData | null>(null);

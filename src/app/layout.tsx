@@ -62,17 +62,17 @@ export default function RootLayout({
 				{
 					umamiUri && umamiWebsiteId && (
 						<script
-					defer
-					src={umamiUri}
-					data-website-id={umamiWebsiteId}
-				/>
+							defer
+							src={umamiUri}
+							data-website-id={umamiWebsiteId}
+						/>
 					)
 				}
 			</head>
-			<body className="antialiased">
-				<Suspense>
+			<body className="antialiased m-0">
+				{/* <Suspense> */}
 					{children}
-				</Suspense>
+				{/* </Suspense> */}
 			</body>
 		</html>
 	);

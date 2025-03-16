@@ -4,9 +4,10 @@ import Link from "next/link";
 
 interface Params {
 	artistsData: Array<TrackArtist> | TrackArtist;
+	fontSize: number;
 }
 
-export default function ArtistDisplay({ artistsData }: Params) {
+export default function ArtistDisplay({ artistsData, fontSize }: Params) {
 	artistsData = Array.isArray(artistsData) ? artistsData : [artistsData];
 
 	return (
@@ -16,7 +17,9 @@ export default function ArtistDisplay({ artistsData }: Params) {
 
 				return (
 					<span key={key}>
-						<Link href={artist.url} className="text-[black] no-underline hover:underline">
+						<Link href={artist.url} style={{
+							fontSize: fontSize
+						}} className="text-[black] no-underline hover:underline">
 							{artist.name}
 						</Link>
 						{index < artistsData.length - 1 && " & "}
