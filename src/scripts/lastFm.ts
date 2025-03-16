@@ -1,6 +1,6 @@
+import type { Dispatch, SetStateAction } from "react";
 import type { ReceiptData } from "@/types/receipt";
 import axios, { type AxiosError } from "axios";
-import type { Dispatch, SetStateAction } from "react";
 
 interface Params {
 	user: string;

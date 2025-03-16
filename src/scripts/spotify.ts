@@ -1,5 +1,5 @@
-import axios, { type AxiosError } from "axios";
 import type { Dispatch, SetStateAction } from "react";
+import axios, { type AxiosError } from "axios";
 
 export function getHashParams() {
 	const params: {

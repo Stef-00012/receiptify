@@ -1,10 +1,10 @@
+import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
+import type { ReceiptData } from "@/types/receipt";
+import { generateState } from "@/scripts/spotify";
 import getButtonStatus from "@/scripts/buttons";
 import fetchLastFmData from "@/scripts/lastFm";
-import { generateState } from "@/scripts/spotify";
-import validate from "@/scripts/validate";
-import type { ReceiptData } from "@/types/receipt";
 import { useRouter } from "next/navigation";
-import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
+import validate from "@/scripts/validate";
 
 interface Params {
 	onSubmit: (receiptData: ReceiptData | null, error: string | null) => void;

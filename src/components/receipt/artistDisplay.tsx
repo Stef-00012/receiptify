@@ -1,5 +1,5 @@
-import { generateState } from "@/scripts/spotify";
 import type { TrackArtist } from "@/types/receipt";
+import { generateState } from "@/scripts/spotify";
 import Link from "next/link";
 
 interface Params {

@@ -379,21 +379,17 @@ export default function Receipt({ receiptData }: Params) {
 }
 
 function createAdaptiveDashes(fontSize: number, windowWidth: number) {
-	// Base case: 53 dashes when both conditions are met
 	if (fontSize >= 16 && windowWidth >= 618) {
 		return "-".repeat(53);
 	}
 
-	// Calculate adjustment factor based on reduced parameters
 	const fontSizeFactor = fontSize >= 16 ? 1 : 16 / fontSize;
 	const widthFactor = windowWidth >= 618 ? 1 : 618 / windowWidth;
 
-	// Calculate adjusted dash count
 	const baseDashes = 53;
 	const adjustment = Math.round(
 		(baseDashes * (fontSizeFactor + widthFactor)) / 2,
 	);
 
-	// Ensure adjustment doesn't exceed original count
 	return "-".repeat(Math.min(adjustment, baseDashes));
 }
