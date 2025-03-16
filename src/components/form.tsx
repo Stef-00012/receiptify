@@ -1,4 +1,5 @@
 import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
+import useWindowDimensions from "@/hooks/useWindowSize";
 import type { ReceiptData } from "@/types/receipt";
 import { generateState } from "@/scripts/spotify";
 import getButtonStatus from "@/scripts/buttons";
@@ -12,7 +13,9 @@ interface Params {
 }
 
 export default function Form({ onSubmit, setLoading }: Params) {
-	const [lastFmUsername, setLastFmUsername] = useState<string>("stef_do");
+	const windowSize = useWindowDimensions()
+
+	const [lastFmUsername, setLastFmUsername] = useState<string>("stef_dp");
 	const [trackCount, setTrackCount] = useState<number>(20);
 	const [period, setPeriod] = useState<string>("1month");
 	const [cardHolder, setCardHolder] = useState<string>();
@@ -33,7 +36,7 @@ export default function Form({ onSubmit, setLoading }: Params) {
 	}, []);
 
 	return (
-		<div className="max-w-[440px] border bg-[#f9f9f9] mx-auto my-3 mb-0 p-5 rounded-[5px] border-solid border-[#ccc]">
+		<div className={`max-w-[440px] border bg-[#f9f9f9] ${windowSize.width >= 500 ? "mx-auto" : "mx-[30px]"} my-3 mb-0 p-5 rounded-[5px] border-solid border-[#ccc]`}>
 			<form
 				onSubmit={async (e) => {
 					e.preventDefault();
