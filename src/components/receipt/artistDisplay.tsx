@@ -17,9 +17,13 @@ export default function ArtistDisplay({ artistsData, fontSize }: Params) {
 
 				return (
 					<span key={key}>
-						<Link href={artist.url} style={{
-							fontSize: fontSize
-						}} className="text-[black] no-underline hover:underline">
+						<Link
+							href={artist.url}
+							style={{
+								fontSize: fontSize,
+							}}
+							className="text-[black] no-underline hover:underline"
+						>
 							{artist.name}
 						</Link>
 						{index < artistsData.length - 1 && " & "}

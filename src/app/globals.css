@@ -3,35 +3,35 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "receipt";
-  src: url("/fonts/receipt.ttf") format("truetype");
+	font-family: "receipt";
+	src: url("/fonts/receipt.ttf") format("truetype");
 }
 
 :root {
-  --background: url("/images/receiptBackground.webp");
-  --foreground: #171717;
+	--background: url("/images/receiptBackground.webp");
+	--foreground: #171717;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: "receipt", sans-serif;
-  margin-right: 30px;
-  margin-left: 30px;
+	color: var(--foreground);
+	background: var(--background);
+	font-family: "receipt", sans-serif;
+	margin-right: 30px;
+	margin-left: 30px;
 }
 
 .align-center {
-  @apply text-center;
+	@apply text-center;
 }
 
 .align-right {
-  @apply text-right pr-0;
+	@apply text-right pr-0;
 }
 
 .divider {
-  @apply h-[5px] pl-0.5 py-0;
+	@apply h-[5px] pl-0.5 py-0;
 }
 
 td {
-  @apply px-[15px];
+	@apply px-[15px];
 }

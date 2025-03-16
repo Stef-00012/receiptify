@@ -194,7 +194,7 @@ export default function Form({ onSubmit, setLoading }: Params) {
 
 						const state = generateState();
 
-						localStorage.setItem("spotify_state", state)
+						localStorage.setItem("spotify_state", state);
 
 						const urlParams = new URLSearchParams({
 							response_type: "token",
