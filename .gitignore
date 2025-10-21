@@ -42,4 +42,4 @@ next-env.d.ts
 
 .env
 biome.json
-start.sh
+/__start.sh
