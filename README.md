@@ -5,7 +5,7 @@ It fetches your top tracks and renders them in a way to look like a receipt.
 
 # Installation
 
-1. `git clone https://github.com/Stef-00012/receiptify`.
+1. `git clone https://git.stefdp.com/Stef/receiptify`.
 2. `cd receiptify`.
 3. Setup the `.env` file (See [Config](#config)).
 4. `docker compose up -d`
