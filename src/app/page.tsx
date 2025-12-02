@@ -90,7 +90,7 @@ export default function Home() {
 				setError(error);
 			})();
 		}
-	}, [accessToken, hashState, state]);
+	}, [accessToken, hashState, spotifyCode, state]);
 
 	useEffect(() => {
 		if (user && process.env.NEXT_PUBLIC_LASTFM_ENABLED === "true") {

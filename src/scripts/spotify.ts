@@ -102,6 +102,8 @@ export async function fetchSpotifyUserAccessToken(
 			message: string;
 		};
 
+		if (errorData) console.error("Spotify Access Token Error:", errorData.message);
+
 		return null;
 	}
 }
