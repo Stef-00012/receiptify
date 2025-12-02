@@ -200,7 +200,7 @@ export default function Form({ onSubmit, setLoading }: Params) {
 						localStorage.setItem("spotify_state", state);
 
 						const urlParams = new URLSearchParams({
-							response_type: "token",
+							response_type: "code",
 							client_id: clientId,
 							scope: "user-top-read user-read-private",
 							redirect_uri: redirectUri,
