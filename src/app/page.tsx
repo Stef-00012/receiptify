@@ -1,6 +1,6 @@
 "use client";
 
-import { fetchSpotifyUserData, getHashParams } from "@/scripts/spotify";
+import { fetchSpotifyUserAccessToken, fetchSpotifyUserData, getHashParams } from "@/scripts/spotify";
 
 import type { ReceiptData } from "@/types/receipt";
 import { useSearchParams } from "next/navigation";
@@ -24,6 +24,9 @@ export default function Home() {
 	const authCode = searchParams.get("authCode");
 	const thanks = searchParams.get("thanks");
 
+	const spotifyCode = searchParams.get("code");
+	const spotifyState = searchParams.get("state");
+
 	const [hashParams, setHashParams] = useState<{
 		[key: string]: string;
 	}>({});
@@ -38,6 +41,7 @@ export default function Home() {
 	}, []);
 
 	useEffect(() => {
+		console.log(hashParams)
 		setAccessToken(hashParams.access_token);
 		setHashState(hashParams.state);
 
@@ -46,11 +50,35 @@ export default function Home() {
 
 	useEffect(() => {
 		if (
+			spotifyCode &&
+			process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID &&
+			process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI &&
+			process.env.NEXT_PUBLIC_SPOTIFY_ENABLED === "true" &&
+			spotifyState === state
+		) {
+			(async () => {
+				const data = await fetchSpotifyUserAccessToken(spotifyCode);
+
+				if (!data) return setError("Something went wrong...");
+
+				const { receiptData, error } = await fetchSpotifyUserData(
+					data.access_token,
+					setLoading,
+				);
+
+				setReceiptData(receiptData);
+				setError(error);
+			})();
+		}
+	}, [spotifyCode, spotifyState, state])
+
+	useEffect(() => {
+		if (
 			accessToken &&
 			process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID &&
 			process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI &&
 			process.env.NEXT_PUBLIC_SPOTIFY_ENABLED === "true" &&
-			state === hashState
+			state === spotifyCode
 		) {
 			(async () => {
 				const { receiptData, error } = await fetchSpotifyUserData(

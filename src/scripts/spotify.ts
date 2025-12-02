@@ -67,3 +67,41 @@ export async function fetchSpotifyUserData(
 		};
 	}
 }
+
+export async function fetchSpotifyUserAccessToken(
+	code: string,
+) {
+	const body = {
+		code,
+		redirect_uri: process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI,
+		grant_type: "authorization_code"
+	};
+
+	try {
+		const response = await axios.post(`https://accounts.spotify.com/api/token`, body, {
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded',
+				Authorization: `Basic ${btoa(`${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID}:${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET}`)}`
+			}
+		})
+
+		const data = response.data as {
+			access_token: string;
+			token_type: string;
+			scope: string;
+			expires_in: number;
+			refresh_token: string;
+		}
+
+		return data;
+	} catch(e) {
+		const error = e as AxiosError;
+
+		const errorData = error.response?.data as {
+			code: number;
+			message: string;
+		};
+
+		return null;
+	}
+}
